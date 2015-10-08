@@ -3,19 +3,19 @@ package gamepipelab.usc.tdgame.entities;
 public class Monster
 {
 	private String name;
-	private int damage;
-	private int HP;
-	private int armor;
-	private int range;
+	private float damage;
+	private float HP;
+	private float armor;
+	private float range;
 	private float rateOfFire;
-	private int gain;
-	private int speed;
-	private int mana;
+	private float gain;
+	private float speed;
+	private float mana;
 	private String reference;
 	private boolean isAirUnit;
 	
-	public Monster(String name, int damage, int HP, int armor, int range,
-			float rateOfFire, int gain, int speed, int mana, String reference,
+	public Monster(String name, float damage, float HP, float armor, float range,
+			float rateOfFire, float gain, float speed, float mana, String reference,
 			boolean isAirUnit)
 	{
 		super();
@@ -42,42 +42,42 @@ public class Monster
 		this.name = name;
 	}
 
-	public int getDamage()
+	public float getDamage()
 	{
 		return damage;
 	}
 
-	public void setDamage(int damage)
+	public void setDamage(float damage)
 	{
 		this.damage = damage;
 	}
 
-	public int getHP()
+	public float getHP()
 	{
 		return HP;
 	}
 
-	public void setHP(int hP)
+	public void setHP(float hP)
 	{
 		HP = hP;
 	}
 
-	public int getArmor()
+	public float getArmor()
 	{
 		return armor;
 	}
 
-	public void setArmor(int armor)
+	public void setArmor(float armor)
 	{
 		this.armor = armor;
 	}
 
-	public int getRange()
+	public float getRange()
 	{
 		return range;
 	}
 
-	public void setRange(int range)
+	public void setRange(float range)
 	{
 		this.range = range;
 	}
@@ -92,32 +92,32 @@ public class Monster
 		this.rateOfFire = rateOfFire;
 	}
 
-	public int getGain()
+	public float getGain()
 	{
 		return gain;
 	}
 
-	public void setGain(int gain)
+	public void setGain(float gain)
 	{
 		this.gain = gain;
 	}
 
-	public int getSpeed()
+	public float getSpeed()
 	{
 		return speed;
 	}
 
-	public void setSpeed(int speed)
+	public void setSpeed(float speed)
 	{
 		this.speed = speed;
 	}
 
-	public int getMana()
+	public float getMana()
 	{
 		return mana;
 	}
 
-	public void setMana(int mana)
+	public void setMana(float mana)
 	{
 		this.mana = mana;
 	}
