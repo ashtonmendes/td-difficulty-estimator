@@ -1,19 +1,23 @@
 package gamepipelab.usc.tdgame.specs;
 
-import gamepipelab.usc.tdgame.entities.Monster;
 
 public class MiniWave
 {
 	private int startTime;
 	private int amount;
-	private Monster monster;
+	private String monsterName;
 	
-	public MiniWave(int startTime, int amount, Monster monster)
+	public MiniWave(int startTime, int amount, String monsterName)
 	{
 		super();
 		this.startTime = startTime;
 		this.amount = amount;
-		this.monster = monster;
+		this.monsterName = monsterName;
+	}
+	
+	public MiniWave()
+	{
+		
 	}
 
 	public int getStartTime()
@@ -36,13 +40,19 @@ public class MiniWave
 		this.amount = amount;
 	}
 
-	public Monster getMonster()
+	public String getMonsterName()
 	{
-		return monster;
+		return monsterName;
 	}
 
-	public void setMonster(Monster monster)
+	public void setMonsterName(String monsterName)
 	{
-		this.monster = monster;
+		this.monsterName = monsterName;
+	}
+
+	@Override
+	public String toString()
+	{
+		return startTime+" "+amount+" "+monsterName;
 	}	
 }

@@ -10,6 +10,7 @@ public class LevelMap
 	{
 		this.width = width;
 		this.height = height;
+		map = new int[height][width];
 	}
 
 	public int getWidth()
@@ -32,13 +33,15 @@ public class LevelMap
 		this.height = height;
 	}
 
-	public int[][] getMap()
+	public int getCell(int i, int j)
 	{
-		return map;
+		return map[i][j];
 	}
 
-	public void setMap(int[][] map)
+	public void setCell(int i, int j, int value)
 	{
-		this.map = map;
-	}	
+		this.map[i][j] = value;
+	}
+	
+	
 }

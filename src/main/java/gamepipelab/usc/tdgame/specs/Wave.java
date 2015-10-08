@@ -11,6 +11,11 @@ public class Wave
 		super();
 		this.miniWaves = miniWaves;
 	}
+	
+	public Wave()
+	{
+		
+	}
 
 	public List<MiniWave> getMiniWaves()
 	{
