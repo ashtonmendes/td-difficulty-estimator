@@ -32,6 +32,10 @@ public class Monster
 		this.isAirUnit = isAirUnit;
 	}
 
+	public Monster() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getName()
 	{
 		return name;
