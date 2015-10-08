@@ -6,12 +6,10 @@ public class LevelMap
 	private int height;	
 	private int[][] map;
 	
-	public LevelMap(int width, int height, int[][] map)
+	public LevelMap(int width, int height)
 	{
-		super();
 		this.width = width;
 		this.height = height;
-		this.map = map;
 	}
 
 	public int getWidth()
