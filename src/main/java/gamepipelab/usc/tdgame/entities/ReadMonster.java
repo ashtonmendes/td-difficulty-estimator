@@ -98,8 +98,8 @@ public class ReadMonster {
     		}
     	}
 //    	System.out.print("monster name = " + monster.getName() + ", reference name = " + monster.getReference());
-    	if (!monsters.containsKey(monster.getReference())) {
-    		monsters.put(monster.getReference(), monster);
+    	if (!monsters.containsKey(monster.getName())) {
+    		monsters.put(monster.getName(), monster);
     	}
 //    	System.out.println("  HashMap.size = " + monsters.size());
     }
