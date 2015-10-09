@@ -119,8 +119,8 @@ public class ReadMonster {
     	}
 //    	System.out.println("  HashMap.size = " + monsters.size());
     }
-    public static void main(String[] args) {
-    	new ReadMonster();
-	}
+//    public static void main(String[] args) {
+//    	new ReadMonster();
+//	}
     
 }
