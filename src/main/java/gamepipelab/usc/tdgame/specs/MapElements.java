@@ -1,6 +1,5 @@
 package gamepipelab.usc.tdgame.specs;
 
-
 public class MapElements
 {
 	public static final int MONSTER_PATH = 1;

@@ -45,7 +45,7 @@ public class TowerStatsReader
 		lines.put(98, 104); // Towernaut stats
 	}	
 	
-	public List<Tower> readSheet()
+	public List<Tower> readTowerStats()
 	{
 		List<Tower> towers = new LinkedList<Tower>();
 		

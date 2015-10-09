@@ -97,7 +97,14 @@ public class LevelMapReader
 					lvlMap.setCell(i, j, colorMeanings.get(cellColor));
 			}
 		}
-		
+
+		for(int i=startRow; i<=endRow; i++) {
+			for (int j = startCol; j <= endCol; j++) {
+				System.out.print(lvlMap.getCell(i, j)+" ");
+			}
+			System.out.println();
+		}
+
 		try
 		{
 			workbk.close();
