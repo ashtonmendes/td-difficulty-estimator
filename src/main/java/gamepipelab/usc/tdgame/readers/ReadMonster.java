@@ -1,6 +1,8 @@
 package gamepipelab.usc.tdgame.readers;
 
 import gamepipelab.usc.tdgame.entities.Monster;
+import gamepipelab.usc.tdgame.specs.WaveMonsterData;
+
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -8,17 +10,30 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 public class ReadMonster {
-	protected Map<String, Monster> monsters;
-	protected String filePath = "/Users/zmt/Documents/USC courses/DR/aae_TDDesignData.xlsm";
+	public Map<String, Monster> monsters;
+	public String filePath = "/Users/zmt/Documents/USC courses/DR/aae_TDDesignData.xlsm";
 	
-	public ReadMonster() throws IOException{
-		FileInputStream fis =  new FileInputStream(filePath);
-        Workbook workbook = new XSSFWorkbook(fis);
+	public ReadMonster(){
+		FileInputStream fis = null;
+		try {
+			fis = new FileInputStream(filePath);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        Workbook workbook = null;
+		try {
+			workbook = new XSSFWorkbook(fis);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         Sheet monsterSheet = workbook.getSheetAt(3);
         Map<String, Monster> monsters = new HashMap<String, Monster>();
         // Zombie1
@@ -76,7 +91,7 @@ public class ReadMonster {
         // Wereffalo3
         ReadMonster.setMonster(monsterSheet, 69, monsters);
         // finish 
-//        System.out.println(monsters.size() + " monsters have been read successfully!");
+        System.out.println(monsters.size() + " monsters have been read successfully!");
 	}
     
     private static void setMonster(Sheet monsterSheet, int rowIndex, Map<String, Monster> monsters) {
@@ -104,5 +119,8 @@ public class ReadMonster {
     	}
 //    	System.out.println("  HashMap.size = " + monsters.size());
     }
+    public static void main(String[] args) {
+    	new ReadMonster();
+	}
     
 }
