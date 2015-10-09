@@ -1,5 +1,5 @@
 package gamepipelab.usc.tdgame;
-import gamepipelab.usc.tdgame.specs.MonsterTower;
+import gamepipelab.usc.tdgame.readers.MonsterTower;
 
 public class Main {
 
