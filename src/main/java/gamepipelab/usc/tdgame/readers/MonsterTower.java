@@ -1,4 +1,4 @@
-package gamepipelab.usc.tdgame.specs;
+package gamepipelab.usc.tdgame.readers;
 import java.util.*;
 import java.io.*;
 
