@@ -43,5 +43,8 @@ public class LevelMap
 		this.map[i][j] = value;
 	}
 	
-	
+	public int[][] getEntireMap()
+	{
+		return this.map;
+	}
 }

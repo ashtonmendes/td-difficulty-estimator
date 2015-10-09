@@ -101,19 +101,19 @@ public class ReadMonster {
     		int columIndex = cell.getColumnIndex();
     		switch (columIndex) {
     		case 1: monster.setName(cell.getStringCellValue()); break;
-    		case 2: monster.setDamage((int)cell.getNumericCellValue()); break;
-    		case 3: monster.setHP((int)cell.getNumericCellValue()); break;
-    		case 4: monster.setArmor((int)cell.getNumericCellValue()); break;
-    		case 5: monster.setRange((int)cell.getNumericCellValue());	break;
+    		case 2: monster.setDamage((float)cell.getNumericCellValue()); break;
+    		case 3: monster.setHP((float)cell.getNumericCellValue()); break;
+    		case 4: monster.setArmor((float)cell.getNumericCellValue()); break;
+    		case 5: monster.setRange((float)cell.getNumericCellValue());	break;
     		case 6: monster.setRateOfFire((float)cell.getNumericCellValue()); break;
-    		case 7: monster.setGain((int)cell.getNumericCellValue()); break;
-    		case 8: monster.setSpeed((int)cell.getNumericCellValue()); break;
-    		case 9: monster.setMana((int)cell.getNumericCellValue()); break;
+    		case 7: monster.setGain((float)cell.getNumericCellValue()); break;
+    		case 8: monster.setSpeed((float)cell.getNumericCellValue()); break;
+    		case 9: monster.setMana((float)cell.getNumericCellValue()); break;
     		case 10: monster.setReference(cell.getStringCellValue()); break;
     		case 11: monster.setAirUnit(cell.getCachedFormulaResultType() == 1); break;
     		}
     	}
-//    	System.out.print("monster name = " + monster.getName() + ", reference name = " + monster.getReference());
+//    	System.out.println("monster name = " + monster.getName() + ", speed = " + monster.getSpeed());
     	if (!monsters.containsKey(monster.getName())) {
     		monsters.put(monster.getName(), monster);
     	}
