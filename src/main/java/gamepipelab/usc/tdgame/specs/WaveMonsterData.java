@@ -10,17 +10,26 @@ import java.util.List;
 
 public class WaveMonsterData {
 
-	public static float avgTime;
-	public static float totalHP;
+	public static float avgTimeGround;
+	public static float totalHPGround;
+	public static float totalGainGround;
+	
+	public static float avgTimeAir;
+	public static float totalHPAir;
+	public static float totalGainAir;
 
 	
-//	public static void main(String[] args) {
-	public void getWaveRecord(Wave wave) {
-		WaveMonsterData test = new WaveMonsterData();
-		ReadMonster monsterReader =  new ReadMonster();
-		Map<String, Monster> monsters = monsterReader.monsters;
+	public static void main(String[] args) {
 		WaveReader waveReader = new WaveReader();
 		List<Wave> waves = waveReader.readWaves();
+		getWaveRecord(waves.get(0));
+	}	
+	public static void getWaveRecord(Wave wave) {
+//		WaveMonsterData test = new WaveMonsterData();
+		ReadMonster monsterReader =  new ReadMonster();
+		Map<String, Monster> monsters = monsterReader.monsters;
+//		WaveReader waveReader = new WaveReader();
+//		List<Wave> waves = waveReader.readWaves();
 		LevelMapReader mapReader = new LevelMapReader();
 		int[][] map = mapReader.readMap().getEntireMap();
 		float pathLength = 0;
@@ -31,24 +40,60 @@ public class WaveMonsterData {
 				}
 			}
 		}
-		totalHP = 0;
-		float totalTime = 0;
-		int totalMonster = 0;
+		
+		float totalTimeGround = 0;
+		float totalTimeAir = 0;
+		
+		int totalMonsterGround = 0;
+		int totalMonsterAir = 0;
+		
+		totalHPGround = 0;
+		totalHPAir = 0;
+		
+		totalGainGround = 0;
+		totalGainAir = 0;
+		
 			for (MiniWave mini: wave.getMiniWaves()) {
 				Monster m = monsters.get(mini.getMonsterName());
-				totalHP += (m.getHP() + m.getArmor()) * mini.getAmount() ;
-				for (int i = 1; i <= mini.getAmount(); i++) {
-					totalTime += mini.getStartTime() * i + pathLength / m.getSpeed();
+//				System.out.println(m.isAirUnit());
+				if (!m.isAirUnit()) {
+					totalHPGround += (m.getHP() + m.getArmor()) * mini.getAmount() ;
+					for (int i = 1; i <= mini.getAmount(); i++) {
+						totalTimeGround += mini.getStartTime() * i + pathLength / m.getSpeed();
+					}
+					totalMonsterGround += mini.getAmount();
+					totalGainGround += m.getGain() * mini.getAmount();
+				} else {
+					totalHPAir += (m.getHP() + m.getArmor()) * mini.getAmount() ;
+					for (int i = 1; i <= mini.getAmount(); i++) {
+						totalTimeAir += mini.getStartTime() * i + pathLength / m.getSpeed();
+					}
+					totalMonsterAir += mini.getAmount();
+					
+					totalGainAir += m.getGain() * mini.getAmount();
 				}
-				totalMonster += mini.getAmount();
 			}
 
-		avgTime = totalTime / totalMonster;
-//		System.out.println("number of waves:" + waves.size());
-//		System.out.println("totalHP:" + totalHP);
-//		System.out.println("totalMonster:" + totalMonster);
-//		System.out.println("totalTime:" + totalTime);
-//		System.out.println("avgTime:" + avgTime);
+		avgTimeGround = totalTimeGround / totalMonsterGround;
+		if (totalMonsterAir == 0) {
+			avgTimeAir = 0;
+		} else {
+			avgTimeAir = totalTimeAir / totalMonsterAir;
+		}
+		
+		System.out.println("path length: " + pathLength);
+
+		System.out.println("totalMonsterGround: " + totalMonsterGround);
+		System.out.println("totalHPGround: " + totalHPGround);
+		System.out.println("totalTimeGround: " + totalTimeGround);
+		System.out.println("avgTimeGround: " + avgTimeGround);
+		System.out.println("totalGainGround: " + totalGainGround);
+		
+		System.out.println("totalMonsterAir: " + totalMonsterAir);
+		System.out.println("totalHPAir: " + totalHPAir);
+		System.out.println("totalTimeAir: " + totalTimeAir);
+		System.out.println("avgTimeAir: " + avgTimeAir);
+		System.out.println("totalGainAir: " + totalGainAir);
 		
 	}
 }

@@ -17,7 +17,8 @@ import java.util.Map;
 
 public class ReadMonster {
 	public Map<String, Monster> monsters;
-	public String filePath = "/Users/zmt/Documents/USC courses/DR/aae_TDDesignData.xlsm";
+//	private final String excelFilePath = "/home/ashton/Desktop/aae_TDDesignData.xlsm";
+	public final String filePath = "/Users/zmt/Documents/USC courses/DR/aae_TDDesignData.xlsm";
 	
 	public ReadMonster(){
 		FileInputStream fis = null;
@@ -110,17 +111,18 @@ public class ReadMonster {
     		case 8: monster.setSpeed((float)cell.getNumericCellValue()); break;
     		case 9: monster.setMana((float)cell.getNumericCellValue()); break;
     		case 10: monster.setReference(cell.getStringCellValue()); break;
-    		case 11: monster.setAirUnit(cell.getCachedFormulaResultType() == 1); break;
+    		case 11: monster.setAirUnit((int)cell.getNumericCellValue() == 1); break;
     		}
     	}
-//    	System.out.println("monster name = " + monster.getName() + ", speed = " + monster.getSpeed());
+    	
+//    	System.out.println("monster name = " + monster.getName() + " isAir = " + monster.isAirUnit());
     	if (!monsters.containsKey(monster.getName())) {
     		monsters.put(monster.getName(), monster);
     	}
 //    	System.out.println("  HashMap.size = " + monsters.size());
     }
-//    public static void main(String[] args) {
-//    	new ReadMonster();
-//	}
+    public static void main(String[] args) {
+    	new ReadMonster();
+	}
     
 }
