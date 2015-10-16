@@ -31,10 +31,10 @@ public class CostBasedTowerSelector {
 
     public static void main(String args[]) throws Exception
     {
-        new CostBasedTowerSelector().selectTowers(1000);
+        new CostBasedTowerSelector().selectTowers(1000, 5);
     }
 
-    public List<Tower> selectTowers(int initialMoney) {
+    public List<Tower> selectTowers(int initialMoney, int totalTowerPositions) {
         List<Tower> allTowers = new TowerStatsReader().readTowerStats();
 
         PriorityQueue<Tower> airTowers = new PriorityQueue<Tower>(allTowers.size(), towerComparator);
@@ -52,28 +52,33 @@ public class CostBasedTowerSelector {
         int remainingMoney = initialMoney;
         boolean chooseAirTower = true;
         boolean wasTowerChosen = true;
+
+        int totalTowersChosen = 0;
+
         while(wasTowerChosen)
         {
             wasTowerChosen = false;
 
             // Time to choose air tower AND we have money remaining
-            if(chooseAirTower && remainingMoney-airTowers.peek().getCost() >= 0)
+            if(chooseAirTower && totalTowersChosen < totalTowerPositions && remainingMoney-airTowers.peek().getCost() >= 0)
             {
                 Tower airTower = airTowers.remove();
                 selectedTowers.add(airTower);
                 remainingMoney -= airTower.getCost();
                 chooseAirTower = false;
                 wasTowerChosen = true;
+                totalTowersChosen++;
             }
 
             // Time to choose air tower AND we have money remaining
-            if(!chooseAirTower && remainingMoney-groundTowers.peek().getCost() >= 0)
+            if(!chooseAirTower && totalTowersChosen < totalTowerPositions && remainingMoney-groundTowers.peek().getCost() >= 0)
             {
                 Tower groundTower = groundTowers.remove();
                 selectedTowers.add(groundTower);
                 remainingMoney -= groundTower.getCost();
                 chooseAirTower = true;
                 wasTowerChosen = true;
+                totalTowersChosen++;
             }
         }
 
