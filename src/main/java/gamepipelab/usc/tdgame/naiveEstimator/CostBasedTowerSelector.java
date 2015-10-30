@@ -29,10 +29,10 @@ public class CostBasedTowerSelector {
         }
     };
 
-    public static void main(String args[]) throws Exception
+    /*public static void main(String args[]) throws Exception
     {
         new CostBasedTowerSelector().selectTowers(1000, 5);
-    }
+    }*/
 
     public List<Tower> selectTowers(int initialMoney, int totalTowerPositions) {
         List<Tower> allTowers = new TowerStatsReader().readTowerStats();

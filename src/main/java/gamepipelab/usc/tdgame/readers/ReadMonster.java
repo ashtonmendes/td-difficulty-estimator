@@ -1,7 +1,7 @@
 package gamepipelab.usc.tdgame.readers;
 
 import gamepipelab.usc.tdgame.entities.Monster;
-//import gamepipelab.usc.tdgame.specs.WaveMonsterData;
+//import gamepipelab.usc.tdgame.naiveEstimator.WaveMonsterData;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -121,8 +121,8 @@ public class ReadMonster {
     	}
 //    	System.out.println("  HashMap.size = " + monsters.size());
     }
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
     	new ReadMonster();
-	}
+	}*/
     
 }

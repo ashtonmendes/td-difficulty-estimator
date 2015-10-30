@@ -1,9 +1,12 @@
-package gamepipelab.usc.tdgame.specs;
+package gamepipelab.usc.tdgame.naiveEstimator;
 
 import gamepipelab.usc.tdgame.entities.Monster;
 import gamepipelab.usc.tdgame.readers.LevelMapReader;
 import gamepipelab.usc.tdgame.readers.ReadMonster;
 import gamepipelab.usc.tdgame.readers.WaveReader;
+import gamepipelab.usc.tdgame.specs.MapElements;
+import gamepipelab.usc.tdgame.specs.MiniWave;
+import gamepipelab.usc.tdgame.specs.Wave;
 
 import java.util.Map;
 import java.util.List;
@@ -19,11 +22,12 @@ public class WaveMonsterData {
 	public static float totalGainAir;
 
 	
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		WaveReader waveReader = new WaveReader();
 		List<Wave> waves = waveReader.readWaves();
 		getWaveRecord(waves.get(0));
-	}	
+	}	*/
+
 	public static void getWaveRecord(Wave wave) {
 //		WaveMonsterData test = new WaveMonsterData();
 		ReadMonster monsterReader =  new ReadMonster();

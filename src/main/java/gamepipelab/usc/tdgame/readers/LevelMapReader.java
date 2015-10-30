@@ -32,11 +32,11 @@ public class LevelMapReader
 	private final String entrance = "Path Entrance";
 	private final String objective = "Objective to defend";
 	
-	public static void main(String args[]) throws Exception
+	/*public static void main(String args[]) throws Exception
 	{
 		LevelMapReader lmr = new LevelMapReader();
 		lmr.readMap();
-	}
+	}*/
 	
 	public LevelMap readMap()
 	{

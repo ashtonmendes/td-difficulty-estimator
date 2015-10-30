@@ -145,4 +145,21 @@ public class Monster
 	{
 		this.isAirUnit = isAirUnit;
 	}
+
+	@Override
+	public String toString() {
+		return "Monster{" +
+				"name='" + name + '\'' +
+				", damage=" + damage +
+				", HP=" + HP +
+				", armor=" + armor +
+				", range=" + range +
+				", rateOfFire=" + rateOfFire +
+				", gain=" + gain +
+				", speed=" + speed +
+				", mana=" + mana +
+				", reference='" + reference + '\'' +
+				", isAirUnit=" + isAirUnit +
+				'}';
+	}
 }
