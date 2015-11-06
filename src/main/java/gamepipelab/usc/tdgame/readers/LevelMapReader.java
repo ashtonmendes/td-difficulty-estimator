@@ -17,6 +17,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 public class LevelMapReader
 {
 	private final String excelFilePath = "/home/ashton/Desktop/aae_TDDesignData.xlsm";
+//	private final String excelFilePath = "/Users/zmt/Documents/USC courses/DR/aae_TDDesignData.xlsm";
 	private final String sheetName = "Level1";
 	
 	// Map boundaries
@@ -63,6 +64,7 @@ public class LevelMapReader
 		//Read the map legend, i.e which color means what.
 		String cellColor = null;
 		String colorMeaning = null;
+		
 		for(int i=legendStartRow; i<=legendEndRow; i++)
 		{
 			// Color on map
@@ -87,17 +89,24 @@ public class LevelMapReader
 		
 		LevelMap lvlMap = new LevelMap(endCol-startCol+1, endRow-startRow+1);
 		
+		int len = 0;
 		for(int i=startRow; i<=endRow; i++)
 		{
 			for(int j=startCol; j<=endCol; j++)
 			{
 				cellColor = ((ExtendedColor)levelSheet.getRow(i).getCell(j).getCellStyle().getFillForegroundColorColor()).getARGBHex();
 				
-				if(colorMeanings.containsKey(cellColor))				
+				if(colorMeanings.containsKey(cellColor))
+				{
 					lvlMap.setCell(i, j, colorMeanings.get(cellColor));
+					if (lvlMap.getCell(i, j) == 1) {
+						len++;
+					}
+				}
 			}
 		}
-
+		// set monster path length
+		lvlMap.setLength(len);
 		//Printing the map
 		/*for(int i=startRow; i<=endRow; i++) {
 			for (int j = startCol; j <= endCol; j++) {

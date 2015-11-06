@@ -5,6 +5,7 @@ public class LevelMap
 	private int width;
 	private int height;	
 	private int[][] map;
+	private int length; // monster path length
 	
 	public LevelMap(int width, int height)
 	{
@@ -47,4 +48,15 @@ public class LevelMap
 	{
 		return this.map;
 	}
+	
+	public void setLength(int len) 
+	{
+		this.length = len;
+	}
+	
+	public int getLength() 
+	{
+		return this.length;
+	}
+	
 }
