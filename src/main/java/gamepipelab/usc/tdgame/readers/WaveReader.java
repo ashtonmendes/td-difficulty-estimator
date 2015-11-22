@@ -15,7 +15,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class WaveReader
 {
-	private final String excelFilePath = "/home/ashton/Desktop/aae_TDDesignData.xlsm";
+	private final String excelFilePath = "C:\\Users\\Ashton\\Desktop\\aae_TDDesignData.xlsm";
 	private final String sheetName = "Level1";
 	
 	// Wave definitions

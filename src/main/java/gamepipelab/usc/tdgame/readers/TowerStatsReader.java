@@ -17,7 +17,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class TowerStatsReader
 {
-	private final String excelFilePath = "/home/ashton/Desktop/aae_TDDesignData.xlsm";
+	private final String excelFilePath = "C:\\Users\\Ashton\\Desktop\\aae_TDDesignData.xlsm";
 	private final String sheetName = "TowerStats";
 	
 	// Map containing key=from, value=to. For eg. <27, 33> means from line 27 to 33 (inclusive), there exists tower definitions.

@@ -1,6 +1,7 @@
 package gamepipelab.usc.tdgame.naiveEstimator;
 
 import gamepipelab.usc.tdgame.entities.Tower;
+import gamepipelab.usc.tdgame.readers.WaveReader;
 import gamepipelab.usc.tdgame.specs.Wave;
 
 import java.util.LinkedList;
@@ -13,14 +14,25 @@ import java.util.List;
  */
 public class DifferenceCalculator {
 
-    /*public static void main(String args[]) throws Exception {
-        Scanner sc = new Scanner(in);
+    public static void main(String args[]) throws Exception 
+    {
         List<Wave> waves = new WaveReader().readWaves();
-        List<Tower> selectedTowers = new CostBasedTowerSelector().selectTowers(200, 5);
-        new DifferenceCalculator().calculateDifference(waves.get(0), selectedTowers);
-    }*/
+        List<Tower> selectedTowers = new CostBasedTowerSelector().selectTowers(500, 5);
+        DifferenceCalculator diffCal = new DifferenceCalculator();
+        
+        String[] estimates = new String[waves.size()];
+        for(int i=0; i<waves.size(); i++)
+        {
+        	estimates[i] = diffCal.calculateDifference(waves.get(i), selectedTowers);
+        }   
+        
+        for(int i=0; i<estimates.length; i++)
+        {
+        	System.out.print(estimates[i]+" ");
+        }
+    }
 
-    public float calculateDifference(Wave wave, List<Tower> towers) {
+    public String calculateDifference(Wave wave, List<Tower> towers) {
 
         //Calculate monster statistics
         WaveMonsterData.getWaveRecord(wave);
@@ -35,11 +47,16 @@ public class DifferenceCalculator {
             else
                 groundTowers.add(tower);
 
-        System.out.println();
-        System.out.println("GROUND UNITS: "+(calculateTotalFirePower(groundTowers, WaveMonsterData.avgTimeGround) - WaveMonsterData.totalHPGround));
-        System.out.println("AIR UNITS: "+(calculateTotalFirePower(airTowers, WaveMonsterData.avgTimeAir) - WaveMonsterData.totalHPAir));
+        //System.out.println();
+        //System.out.println("GROUND UNITS: Total firepower of towers: "+(calculateTotalFirePower(groundTowers, WaveMonsterData.avgTimeGround)+" Total HP of monsters: "+WaveMonsterData.totalHPGround));
+        //System.out.println("AIR UNITS: Total firepower of towers: "+(calculateTotalFirePower(airTowers, WaveMonsterData.avgTimeAir)+" Total HP of monsters: "+WaveMonsterData.totalHPAir));
 
-        return 0f;
+        int pcOfGroundUnitsDestroyed = (int) (WaveMonsterData.totalHPGround==0? 100 : (calculateTotalFirePower(groundTowers, WaveMonsterData.avgTimeGround)/WaveMonsterData.totalHPGround)*100);
+        int pcOfAirUnitsDestroyed = (int) (WaveMonsterData.totalHPAir==0? 100 : (calculateTotalFirePower(airTowers, WaveMonsterData.avgTimeAir)/WaveMonsterData.totalHPAir)*100);
+        
+        //System.out.println("\nPERCENTAGE: "+pcOfGroundUnitsDestroyed+" "+pcOfAirUnitsDestroyed);
+        
+        return "G:"+pcOfGroundUnitsDestroyed+"%,A:"+pcOfAirUnitsDestroyed+"%";
     }
 
     /**

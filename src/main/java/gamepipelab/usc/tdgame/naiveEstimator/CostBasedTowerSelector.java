@@ -82,8 +82,8 @@ public class CostBasedTowerSelector {
             }
         }
 
-        for(Tower tower : selectedTowers)
-            System.out.println(tower);
+        /*for(Tower tower : selectedTowers)
+            System.out.println(tower);*/
 
         return selectedTowers;
     }

@@ -18,7 +18,7 @@ import java.util.Map;
 public class ReadMonster {
 	public Map<String, Monster> monsters;
 //	private final String excelFilePath = "/home/ashton/Desktop/aae_TDDesignData.xlsm";
-	public final String filePath = "/Users/zmt/Documents/USC courses/DR/aae_TDDesignData.xlsm";
+	public final String filePath = "C:\\Users\\Ashton\\Desktop\\aae_TDDesignData.xlsm";
 	
 	public ReadMonster(){
 		FileInputStream fis = null;

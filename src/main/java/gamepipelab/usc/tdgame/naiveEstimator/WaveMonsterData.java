@@ -85,7 +85,7 @@ public class WaveMonsterData {
 			avgTimeAir = totalTimeAir / totalMonsterAir;
 		}
 		
-		System.out.println("path length: " + pathLength);
+		/*System.out.println("path length: " + pathLength);
 
 		System.out.println("totalMonsterGround: " + totalMonsterGround);
 		System.out.println("totalHPGround: " + totalHPGround);
@@ -97,7 +97,7 @@ public class WaveMonsterData {
 		System.out.println("totalHPAir: " + totalHPAir);
 		System.out.println("totalTimeAir: " + totalTimeAir);
 		System.out.println("avgTimeAir: " + avgTimeAir);
-		System.out.println("totalGainAir: " + totalGainAir);
+		System.out.println("totalGainAir: " + totalGainAir);*/
 		
 	}
 }
